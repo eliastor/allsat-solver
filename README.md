@@ -1,0 +1,1 @@
+# allsat-solver

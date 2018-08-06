@@ -4,6 +4,7 @@ import (
 	"errors"
 	"runtime"
 	//"github.com/irifrance/gini/dimacs"
+	"github.com/eliastor/allsat-solver/clause"
 	"github.com/eliastor/allsat-solver/heuristic"
 	"github.com/eliastor/allsat-solver/store"
 )
@@ -42,6 +43,9 @@ func checkConfig() (err error) {
 
 func parseProblem(p [][]int) (err error) {
 	for _, c := range p {
+		cl := store.Int2Clause(c)
+		
+		store.AddClause(, clause.EmptyTag)
 	}
 	return
 }

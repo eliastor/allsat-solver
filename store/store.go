@@ -19,8 +19,8 @@ type Engine interface {
 	open(interface{}) error
 	close()
 	reload(interface{}) error
-	AddClause(c clause.Clause, tag clause.Tag) (ID clause.ID)
-	GetClause(ID clause.ID) (c clause.Clause, tag clause.Tag)
+	AddClause(c clause.Clause) (uid uintptr, cl clause.Clause)
+	GetClauseByID(ID clause.ID) (c clause.Clause)
 	GetClausesByTag(tag clause.Tag) (c []clause.Clause, ID []clause.ID)
 	DelClause(ID clause.ID)
 	DelClausesByTag(tag clause.Tag)
@@ -107,11 +107,11 @@ func Default() Engine {
 	return adp
 }
 
-func AddClause(c clause.Clause, tag clause.Tag) (ID clause.ID) {
-	return adp.AddClause(c, tag)
+func AddClause(c clause.Clause) (uintptr, clause.Clause) {
+	return adp.AddClause(c)
 }
-func GetClause(ID clause.ID) (c clause.Clause, tag clause.Tag) {
-	return adp.GetClause(ID)
+func GetClauseByID(id clause.ID) (c clause.Clause) {
+	return adp.GetClauseByID(id)
 }
 
 func GetClausesByTag(tag clause.Tag) (c []clause.Clause, ID []clause.ID) {

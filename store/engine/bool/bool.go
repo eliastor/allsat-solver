@@ -74,11 +74,11 @@ func init() {
 	store.RegisterEngine(name, &adapter{})
 }
 
-func (a *adapter) AddClause(c clause.Clause, tag clause.Tag) (ID clause.ID) {
+func (a *adapter) AddClause(c clause.Clause) (uid uintptr, cl clause.Clause) {
 
 	return
 }
-func (a *adapter) GetClause(ID clause.ID) (c clause.Clause, tag clause.Tag) {
+func (a *adapter) GetClauseByID(ID clause.ID) (c clause.Clause) {
 	return
 }
 func (a *adapter) GetClausesByTag(tag clause.Tag) (c []clause.Clause, ID []clause.ID) {
